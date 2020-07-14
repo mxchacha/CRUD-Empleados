@@ -1,0 +1,28 @@
+<h3><a class="btn btn-secondary" href="/empleado"><i class="fa fa-plus"></i> Nuevo Empleado</a> Lista de Empleados</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Ciudad</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.nombre}}</td>
+            <td>{{this.cedula}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.telefono}}</td>
+            <td>{{this.ciudad}}</td>
+            <td>
+                <a href="/empleado/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/empleado/delete/{{this._id}}" onclick="return confirm('Seguro que quiere eliminar el registro?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
