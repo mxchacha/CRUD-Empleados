@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Document title -->
-    <title>Multipurpose</title>
+    <title>Smart Pymes</title>
     <!-- Stylesheets & Fonts -->
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i%7CRajdhani:400,600,700"
@@ -41,6 +41,7 @@
                 </div>
                 <nav class="d-flex aic">
                     <a href="#" class="login"><i class="fa fa-user" aria-hidden="true"></i>Login</a>
+                    <a href="/users/signup" class="login"><i class="fa fa-user" aria-hidden="true" ></i></i>Registro</a>
                     <ul class="nav social d-none d-md-flex">
                         <li><a href="https://www.facebook.com/fh5co" target="_blank"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -62,21 +63,13 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                        <ul class="nav">
+                            <li ><a class="nav-link" href="/empleado/list">Lista Empleados</a></li>
+                            <li ><a class="nav-link" href="/empleado">Nuevo empleado</a></li>
+                        </ul>
+                        <li class="nav-item"><a class="nav-link" href="#">Tareas</a></li>
                     </ul>
-                    <form class="bg-white search-form" method="get" id="searchform">
-                        <div class="input-group">
-                            <input class="field form-control" id="s" name="s" type="text" placeholder="Search">
-                            <span class="input-group-btn">
-                                <input class="submit btn btn-primary" id="searchsubmit" name="submit" type="submit"
-                                    value="Search">
-                            </span>
-                        </div>
-                    </form>
+                    
                 </div>
             </nav>
         </div>
@@ -84,66 +77,23 @@
     <!-- Header End -->
     <!-- Hero Start -->
     <section class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 offset-md-1 col-md-11">
-                    <div class="swiper-container hero-slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide slide-content d-flex align-items-center">
-                                <div class="single-slide">
-                                    <h1 data-aos="fade-right" data-aos-delay="200">Creative<br> Multipurpose websites
-                                    </h1>
-                                    <p data-aos="fade-right" data-aos-delay="600">Crafted by innovative creators for
-                                        Expecting
-                                        Peoples’s predefined dummy text<br> chunks as necessary, making this the first.
-                                    </p>
-                                    <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">See
-                                        More</a>
-                                    <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">Get
-                                        Now</a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide slide-content d-flex align-items-center">
-                                <div class="single-slide">
-                                    <h1 data-aos="fade-right" data-aos-delay="200">Creative<br> Multipurpose websites
-                                    </h1>
-                                    <p data-aos="fade-right" data-aos-delay="600">Crafted by innovative creators for
-                                        Expecting
-                                        Peoples’s predefined dummy text<br> chunks as necessary, making this the first.
-                                    </p>
-                                    <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">See
-                                        More</a>
-                                    <a data-aos="fade-right" data-aos-delay="900" href="#" class="btn btn-primary">Get
-                                        Now</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-6 offset-md-3" style="background-color: rgb(54, 48, 48);margin-top: 25px;padding:20px;">
+                {{>messages}}
+                {{{body}}}
             </div>
-            <!-- Add Control -->
-            <span class="arr-left"><i class="fa fa-angle-left"></i></span>
-            <span class="arr-right"><i class="fa fa-angle-right"></i></span>
-        </div>
-        <div class="texture"></div>
-        <div class="diag-bg"></div>
+    </div>
+        
     </section>
     <!-- Hero End -->
     <!-- Call To Action Start -->
-    <section class="cta" data-aos="fade-up" data-aos-delay="0">
-        <div class="container">
-            <div class="cta-content d-xl-flex align-items-center justify-content-around text-center text-xl-left">
-                <div class="content" data-aos="fade-right" data-aos-delay="200">
-                    <h2>FOR BUILDING THE MODERN WEBSITE</h2>
-                    <p>Packed with all the goodies you can get, Kallyas is our flagship premium template.</p>
-                </div>
-                <div class="subscribe-btn" data-aos="fade-left" data-aos-delay="400" data-aos-offset="0">
-                    <a href="#" class="btn btn-primary">Join Newsletter</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <!-- Call To Action End -->
     <!-- Services Start -->
     <section class="services">

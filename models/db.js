@@ -1,8 +1,10 @@
 const mongoose=require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/EmployeeDB', { useNewUrlParser: true }, (err) => {
-    if (!err) { console.log('MongoDB Connection Succeeded.') }
-    else { console.log('Error in DB connection : ' + err) }
-});
+mongoose.connect('mongodb+srv://test:12345@cluster0.bykej.mongodb.net/rest?retryWrites=true&w=majority',
+{ useNewUrlParser: true,useUnifiedTopology: true  },
+ ()=>
+    console.log('CXonexion con DB!')
+);
 
 require('./empleado.model');
+require('./user.model');

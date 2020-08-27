@@ -1,7 +1,72 @@
 const express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
+const { Router } = require('express');
 const Empleado = mongoose.model('Empleado');
+
+
+
+//API: DEVUELVE TODOS LOS REGISTROS 
+
+router.get('/api', async (req, res)=>{
+    try {
+        const empleados=await Empleado.find();
+        res.json(empleados);
+        
+    } catch (err) {
+        res.json({message:err})
+    }
+});
+//API: DEVUELVE UN REGISTRO ESPECIFICO POR ID
+/*router.get('/api/:id',async (req,res)=>{
+    console.log(req.params.id);
+    const empleado= await Empleado.findById(req.params.id);
+    res.json(empleado);
+    try {
+        const empleado=await Empleado.findById(req.params.id);
+        res.json(empleado);
+    } catch (err) {
+        res.json({message: err});
+        
+    }
+
+});*/
+//API: DEVUELVE UN REGISTRO BUSCA MEDIANTE CEDULA
+router.get('/api/:cedula',async (req,res)=>{
+    console.log(req.params.cedula);
+
+    const regex=new RegExp(req.params.cedula),query={cedula: regex};
+    Empleado.find(query,function(err,empleados){
+        if(err){
+            res.json(err);
+        }
+        res.json(empleados)
+    });
+    /*console.log(req.params.cedula);
+    const empleado= await Empleado.find({ cedula:{$regex:'cedula'}});
+    res.json(empleado);
+    
+    try {
+        const empleado=await Empleado.findById(req.params.id);
+        res.json(empleado);
+    } catch (err) {
+        res.json({message: err});
+        
+    }*/
+
+});
+
+//API: ELIMINAR REGISTRO
+router.delete('/api/:id',async (req,res)=>{
+    console.log(req.params.id);
+    try {
+        const eliminarEmpleado=await Empleado.remove({_id:req.params.id});
+        res.json(eliminarEmpleado);
+    } catch (err) {
+        res.json({message: err});
+    }
+})
+
 
 router.get('/', (req, res) => {
     res.render("empleado/addOrEdit", {
@@ -31,12 +96,12 @@ function insertRecord(req, res) {
             if (err.name == 'ValidationError') {
                 handleValidationError(err, req.body);
                 res.render("empleado/addOrEdit", {
-                    viewTitle: "Insert empleado",
+                    viewTitle: "Insertar empleado",
                     empleado: req.body
                 });
             }
             else
-                console.log('Error during record insertion : ' + err);
+                console.log('Error al guardar empleado : ' + err);
         }
     });
 }
@@ -53,7 +118,7 @@ function updateRecord(req, res) {
                 });
             }
             else
-                console.log('Error during record update : ' + err);
+                console.log('Error al actualizar los datos : ' + err);
         }
     });
 }
@@ -67,7 +132,7 @@ router.get('/list', (req, res) => {
             });
         }
         else {
-            console.log('Error in retrieving empleado list :' + err);
+            console.log('Error al mostrar lista de empleados :' + err);
         }
     });
 });
@@ -92,7 +157,7 @@ router.get('/:id', (req, res) => {
     Empleado.findById(req.params.id, (err, doc) => {
         if (!err) {
             res.render("empleado/addOrEdit", {
-                viewTitle: "Update empleado",
+                viewTitle: "Actualizar datos de empleado",
                 empleado: doc
             });
         }
